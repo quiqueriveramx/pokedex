@@ -9,7 +9,12 @@
 <body>
   <header>
     <h1>Pokédex</h1>
-    <div class="search-container">
+    <h2>¡Atrápalos a todos!</h2>
+    <select id="pokemonList" onchange="buscarPokemon()">
+      <!-- Opciones de Pokémon se generan dinámicamente aquí -->
+    </select>
+
+    <div class="search-container" hidden>
       <input type="text" id="searchInput" placeholder="Buscar Pokémon por nombre">
       <button onclick="buscarPokemon()">Buscar</button>
     </div>

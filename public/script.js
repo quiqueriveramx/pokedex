@@ -1,8 +1,8 @@
-function buscarPokemon() {
-  const searchInput = document.getElementById('searchInput');
-  const searchTerm = searchInput.value.toLowerCase();
+// Función para buscar un Pokémon por su nombre
+function buscarPokemon(nombrePokemon) {
+  const searchTerm = nombrePokemon.toLowerCase();
 
-  // Agregamos un console log para verificar el término de búsqueda
+  // Agregar un console log para verificar el término de búsqueda
   console.log('Término de búsqueda enviado al servidor:', searchTerm);
 
   fetch(`http://localhost:3000/api/pokemons/${searchTerm}`)
@@ -13,7 +13,7 @@ function buscarPokemon() {
       return response.json();
     })
     .then(data => {
-      // Agregar console.log para mostrar toda la respuesta del servidor
+      // Agregar un console log para mostrar toda la respuesta del servidor
       console.log('Respuesta del servidor:', data);
 
       const pokemonDetails = document.getElementById('pokemonDetails');
@@ -57,3 +57,35 @@ function buscarPokemon() {
     });
 }
 
+// Obtener el elemento select
+const pokemonSelect = document.getElementById('pokemonList');
+const pokemonMap = new Map(); // Utilizaremos un Map para evitar duplicados
+
+// Realizar una solicitud para obtener los nombres de los Pokémon
+fetch('http://localhost:3000/api/pokemons')
+  .then(response => response.json())
+  .then(data => {
+    // Iterar sobre los datos y crear opciones para cada Pokémon
+    data.forEach(pokemon => {
+      // Verificar si el nombre del Pokémon ya está en el Map
+      if (!pokemonMap.has(pokemon.name)) {
+        const option = document.createElement('option');
+        option.value = pokemon.name;
+        option.textContent = pokemon.name;
+        pokemonMap.set(pokemon.name, true); // Almacenar el nombre del Pokémon en el Map para evitar duplicados
+        pokemonSelect.appendChild(option);
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error al obtener los Pokémon:', error);
+  });
+
+// Resto del código para buscar y mostrar detalles
+// ...
+
+// Evento change para el menú desplegable
+pokemonSelect.addEventListener('change', (event) => {
+  const selectedPokemon = event.target.value;
+  buscarPokemon(selectedPokemon);
+});
