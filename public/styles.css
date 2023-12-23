@@ -10,12 +10,16 @@ header {
   }
   
   /* Estilos para el cuerpo */
-  body {
-    /* Agrega el degradado de fondo */
-    background: radial-gradient(circle at center, #4e54c8, #8f94fb);
-    /* Resto de tus estilos */
-    font-family: 'Roboto', sans-serif;
-  }
+body {
+  /* Agrega la imagen de fondo */
+  background-image: url('../images/background.png');
+  /* Establece otras propiedades del fondo */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  background-size: cover; /* Ajusta la imagen para que cubra todo el cuerpo */
+  /* Resto de tus estilos */
+  font-family: 'Roboto', sans-serif;
+}
+
   
   /* Estilos para el contenedor principal */
   #pokemonContainer {
