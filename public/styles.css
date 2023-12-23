@@ -1,0 +1,84 @@
+/* Estilos para el encabezado */
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  /* Estilos para el cuerpo */
+  body {
+    /* Agrega el degradado de fondo */
+    background: radial-gradient(circle at center, #4e54c8, #8f94fb);
+    /* Resto de tus estilos */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Estilos para el contenedor principal */
+  #pokemonContainer {
+    margin-top: 20px; /* Agrega un espacio entre el header y el contenedor de tarjetas */
+  }
+  
+  /* Estilos para las tarjetas de Pokémon */
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #fff;
+  
+    /* Propiedades de la animación */
+    opacity: 0; /* Inicialmente ocultas */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateX(20px); /* Inicialmente desplazadas a la derecha */
+  }
+  
+  /* Clase que anima la aparición */
+  .slide-in {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Estilos para la sección de detalles del Pokémon */
+  #pokemonDetails {
+    display: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilos para la tarjeta del Pokémon */
+  #pokemonDetails {
+    display: none;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  #pokemonDetails img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  #pokemonDetails ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Estilos para hacer la tarjeta receptiva */
+  @media screen and (max-width: 600px) {
+    #pokemonDetails {
+      max-width: 90%;
+    }
+  }
+  
